@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Reset Password</title>
+	<link rel="stylesheet" 
+	      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+	      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+	      crossorigin="anonymous">
+</head>
+<body>
+	<h1>Reset Your Password Here</h1>
+	<font color="red">
+	    <p th:text="${errMsg}"></p>
+	    <p th:text="${erMsg}"></p>
+	</font>
+	<hr/>
+	<div class="container">
+	    <form action="updatePwd" method="post" th:object="${resetPwd}">
+	        <table>
+	            <tr>
+				    <td>New Password:</td>
+	                <td><input type="password" th:field="*{newPwd}"/></td>
+	            </tr>
+	            <tr>
+				    <td>Confirm Password:</td>
+	                <td><input type="password" th:field="*{confirmPwd}"/></td>
+	                <input type="hidden" th:field="*{userId}" />
+	            </tr>
+	        </table>
+			<button class="btn btn-primary" value="update" type="submit">Save</button>
+	    </form>
+	</div>
+</body>
+</html>
